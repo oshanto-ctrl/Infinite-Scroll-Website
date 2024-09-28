@@ -10,7 +10,7 @@
 
     <!-- Main Container -->
     <div class="container">
-
+        <h1 id="title">. . . Scroll Infinte . . .</h1>
         <!-- Content Div -->
         <div id="content">
 
@@ -74,7 +74,7 @@
                         var formattedDate = new Date((post.date) * 1000).toLocaleDateString("en-US");
 
                         // Build and html format response
-                        var html = "<div class='box'>" + post.id + ' ' + post.content + ' ' + formattedDate + "</div>"
+                        var html = "<div class='box'>" + post.content + ' ' + formattedDate + "</div>"
                         
                         // Append the html to id content in html
                         $('#content').append(html);

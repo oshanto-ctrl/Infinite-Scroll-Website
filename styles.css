@@ -1,5 +1,71 @@
-/* Box Class Style */
+/* Smooth Scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Body backgroun color */
+body {
+  background-color: #c5b2db; /* Set your desired background color here */
+  margin: 0; /* Remove default margin */
+  font-family: Arial, sans-serif; /* Optional: Set default font for the whole site */
+}
+
+/* Post Box Design */
 .box {
-    border: 1px solid blueviolet;
-    padding: 10px;
+  position: relative;
+  padding: 20px;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #f0f4f9, #d9e2f3); /* Soft gradient */
+  font-family: Arial, sans-serif;
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.1); /* A more defined shadow */
+  margin-bottom: 20px; /* Gap between boxes */
+  transition: transform 0.3s ease; /* Smooth hover effect */
+  cursor: pointer;
+}
+
+/* Box on hover */
+.box:hover {
+  transform: translateY(-5px); /* Slight lift on hover */
+}
+
+/* Date of the box Design */
+.box .date {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 12px;
+  color: #666;
+  background-color: rgba(255, 255, 255, 0.9); /* Slight transparency */
+  padding: 5px 10px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  font-weight: bold;
+}
+
+
+/* Box Content Design */
+.box .content {
+  margin-top: 40px; /* More space from the date */
+  font-size: 18px;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Container Design */
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px; /* More gap between boxes */
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Title Heading Design */
+#title {
+  color: blueviolet;
+  text-align: center;
+  font-style: italic;
+  font-weight: bolder;
 }
