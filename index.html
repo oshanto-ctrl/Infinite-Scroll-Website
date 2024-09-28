@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scroll Infinite</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Main Container -->
+    <div class="container">
+
+        <!-- Content Div -->
+        <div id="content">
+
+        </div> <!-- Content Div End-->
+
+    </div> <!-- Main Container End-->
+
+    <!-- JQuery Library CDN 1.x snippet -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+    <!-- Custom JS Script -->
+     <script>
+
+        var offset = 0; 
+        var iload = 1;
+        
+        /* Function that loads when the page loads by default*/
+        $(function() {
+            loadArt(4);
+        });
+        
+        // Scroll
+        $(window).scroll(function() {
+            if($(window).scrollTop() >= $(document).height() - $(window).height() - 100){
+                loadArt(1); // Load 1 item when scrolling down.
+            }
+        });
+
+
+
+        // Ajax Call
+        function loadArt(a) {
+            $.ajax({
+                
+                url : "api.php",
+                type : "POST",
+                data : {
+                    offset : offset,
+                    iload : a,
+                },
+                dataType : "json",
+                success : function (data) {
+                    console.log(data);
+
+                    // Loop through datas (objects)
+                    for(var i = 0; i < data.content.length; i++) {
+                        offset++; // Increase offset on each data
+                        var post = data.content[i];
+                        
+                        /*
+                        // Convert Unix timestamp to date
+                        var unix_timestamp = post.date;
+                        var date = new Date(unix_timestamp * 1000); // In miliseconds
+                        var hours = date.getHours(); // Hours part from the timestamp
+                        var minutes = "0" + date.getMinutes(); // Minutes part from the timestamp
+                        var seconds = "0" + date.getSeconds(); // Seconds part from the timestamp
+                        var formattedTime = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
+                        */
+                        
+                        // Unix timestamp to date
+                        var formattedDate = new Date((post.date) * 1000).toLocaleDateString("en-US");
+
+                        // Build and html format response
+                        var html = "<div class='box'>" + post.id + ' ' + post.content + ' ' + formattedDate + "</div>"
+                        
+                        // Append the html to id content in html
+                        $('#content').append(html);
+                    }
+                },
+            });
+        }
+
+     </script>
+
+
+</body>
+</html>
