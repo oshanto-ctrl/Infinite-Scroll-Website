@@ -1,6 +1,8 @@
 ## Infinite Scroll Project
 #### Learned basics a new concept. Contents loads automatically when user scrolls. Like social networks.
 
+![scroll_inf](https://github.com/user-attachments/assets/29ad27a3-addb-43b8-bef0-aeab563903d9)
+
 ## Technology Used
 - PHP
 - JQuery
